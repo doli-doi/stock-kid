@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     const data = await response.json();
     const news = data.items.map(item => ({
       title: item.title.replace(/<[^>]*>/g, ''),
-      url: item.originallink || item.link,
+      url: item.link,
       date: new Date(item.pubDate).toLocaleDateString('ko-KR'),
       description: item.description.replace(/<[^>]*>/g, '')
     }));
